@@ -1,5 +1,6 @@
 package store.ojuara.authapi.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class UsuarioController {
 
     private UsuarioService service;
 
+    @Operation(summary = "Cadastrar usuário", description = "Cadastra um usuário")
     @PostMapping("/cadastrar")
     private ResponseEntity<UsuarioDTO> cadastrar(@RequestBody @Valid UsuarioForm form, UriComponentsBuilder uriBuilder){
         var dto = service.cadastrar(form);

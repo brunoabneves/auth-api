@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import store.ojuara.authapi.domain.dto.UsuarioDTO;
 import store.ojuara.authapi.domain.form.UsuarioForm;
-import store.ojuara.authapi.domain.model.Usuario;
 import store.ojuara.authapi.mapper.UsuarioMapper;
 import store.ojuara.authapi.repository.UsuarioRepository;
 import store.ojuara.authapi.service.UsuarioService;
