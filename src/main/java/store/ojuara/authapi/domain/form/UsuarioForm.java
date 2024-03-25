@@ -1,19 +1,20 @@
 package store.ojuara.authapi.domain.form;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import store.ojuara.authapi.domain.enums.RoleEnum;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuarioForm {
 
-    @NotNull(message = "Este é um campo obrigatório.")
     String nome;
-    @NotNull(message = "Este é um campo obrigatório.")
     String login;
-    @NotNull(message = "Este é um campo obrigatório.")
     String senha;
+    @Enumerated(EnumType.STRING)
+    RoleEnum role;
 }

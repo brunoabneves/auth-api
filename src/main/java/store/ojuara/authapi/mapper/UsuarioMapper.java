@@ -7,4 +7,6 @@ import store.ojuara.authapi.domain.model.Usuario;
 
 @Mapper(componentModel = "spring")
 public interface UsuarioMapper extends EntityMapper<UsuarioDTO, Usuario, UsuarioForm>{
+
+    Usuario toModel(UsuarioForm form);
 }

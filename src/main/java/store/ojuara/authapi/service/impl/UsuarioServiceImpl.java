@@ -26,6 +26,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         var passwordHash = passwordEncoder.encode(form.getSenha());
         form.setSenha(passwordHash);
         var usuario = mapper.toModel(form);
-        return mapper.toDto(repository.save(usuario));
+        var usuarioSalvo = repository.save(usuario);
+        return mapper.toDto(usuarioSalvo);
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import store.ojuara.authapi.domain.form.AutenticacaoForm;
+import store.ojuara.authapi.service.AutenticacaoService;
 
 @RestController
 @RequestMapping("/auth")
@@ -17,11 +18,12 @@ import store.ojuara.authapi.domain.form.AutenticacaoForm;
 public class AutenticacaoController {
 
     private AuthenticationManager authenticationManager;
+    private AutenticacaoService autenticacaoService;
+
     @PostMapping
     public ResponseEntity<String> autenticar(@RequestBody AutenticacaoForm form) {
-
         var usuarioAutenticationToken = new UsernamePasswordAuthenticationToken(form.getLogin(), form.getSenha());
         authenticationManager.authenticate(usuarioAutenticationToken);
-        return ResponseEntity.ok("token ...");
+        return ResponseEntity.ok(autenticacaoService.obterToken(form));
     }
 }
